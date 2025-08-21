@@ -4,6 +4,10 @@ python 3.11
 pip install -r requirement.txt
 ```
 
+## intro
+![img](./assets/cartpole.png)   
+목표: 카트를 좌우로 움직여 카트 위의 막대가 쓰러지지 않도록 균형 잡기.   
+심층 Q-네트워크(Deep Q-Network, DQN) 알고리즘을 사용하여 Gymnasium 라이브러리의 CartPole-v1 환경을 해결
 
 ## Quiz
 1. 리플레이 버퍼에서 학습에 사용할 미니배치를 `random.sample`을 이용해 무작위로 추출하는 주된 이유는 무엇일까?
