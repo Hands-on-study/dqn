@@ -9,6 +9,34 @@ pip install -r requirement.txt
 목표: 카트를 좌우로 움직여 카트 위의 막대가 쓰러지지 않도록 균형 잡기.   
 심층 Q-네트워크(Deep Q-Network, DQN) 알고리즘을 사용하여 Gymnasium 라이브러리의 CartPole-v1 환경을 해결
 
+## DQN
+![img](./assets/dqn1.png)
+![img](./assets/dqn2.png)   
+
+1. 현재 state $S_t$에서 Behavior network의 parameter를 사용하여, epsilon-greedy Policy에 의해 action $a_t$ 선택  
+2. 얻어진 transition $(s_t, a_t, r_{t+1}, s_{t+1})$을 Replay buffer에 저장  
+3. Replay Buffer에는 최근 N개의 transition 정보가 저장되어 있으며, 새 정보가 추가되면 가장 오래된 transition 삭제  
+4. Replay Buffer에서 minibatch 크기만큼 random으로 transition sampling  
+5. 주어진 N개의 data에 대해 Target network의 parameter를 사용하여 target value 계산  
+6. Loss function $L(\theta)$ 계산  
+7. Behavior network parameter update  
+8. 일정 step 이후에 Target network parameter update  
+
+## Double DQN
+![img](./assets/doubledqn.png)   
+1. 현재 상태 $s_t$에서 epsilon-greedy policy로 행동 $a_t$ 선택  
+2. 보상 $r_{t+1}$과 다음 상태 $s_{t+1}$ 관찰  
+3. $(s_t, a_t, r_{t+1}, s_{t+1})$를 최대 우선순위로 리플레이 버퍼에 저장  
+4. 일정 주기마다 학습 수행  
+   - 우선순위 기반으로 샘플링  
+   - importance sampling 가중치 계산  
+   - TD 오차 $\delta_i$ 계산 (Double DQN)  
+   - 우선순위 갱신 및 가중치 업데이트  
+5. Behavior network 업데이트  
+6. 주기적으로 Target network 동기화  
+
+
+
 ## Quiz
 1. 리플레이 버퍼에서 학습에 사용할 미니배치를 `random.sample`을 이용해 무작위로 추출하는 주된 이유는 무엇일까?
 

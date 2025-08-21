@@ -145,5 +145,5 @@ if __name__ == "__main__":
                 print(f"episode: {e}  score: {final_score:.1f}  memory length: {len(agent.memory)}  epsilon: {agent.epsilon:.4f}")
 
                 if np.mean(scores[-min(10, len(scores)):]) > 490:
-                    agent.model.save_weights("./save_model/cartpole_dqn.h5")
+                    agent.model.save_weights("./save_model/cartpole_dqn.weights.h5")
                     sys.exit()
