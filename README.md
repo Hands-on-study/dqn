@@ -5,7 +5,7 @@ pip install -r requirement.txt
 ```
 
 ## intro
-![img](dqn/tree/quiz/assets/cartpole.png)   
+![img](./assets/cartpole.png)   
 목표: 카트를 좌우로 움직여 카트 위의 막대가 쓰러지지 않도록 균형 잡기.   
 심층 Q-네트워크(Deep Q-Network, DQN) 알고리즘을 사용하여 Gymnasium 라이브러리의 CartPole-v1 환경을 해결
 
