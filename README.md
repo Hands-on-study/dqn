@@ -3,7 +3,7 @@ python 3.11
 ```bash
 git clone https://github.com/Hands-on-study/dqn.git
 git checkout quiz
-pip install -r requirement.txt
+pip install -r requirements.txt
 ```    
 
 ![img](./assets/cartpole.png)   
