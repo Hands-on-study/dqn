@@ -7,7 +7,11 @@ pip install -r requirement.txt
 ```    
 
 ![img](./assets/cartpole.png)   
-- 목표: 카트를 좌우로 움직여 카트 위의 막대가 쓰러지지 않도록 균형 잡기.   
+- 목표: 카트를 좌우로 움직여 카트 위의 막대가 쓰러지지 않도록 균형 잡기.
+- CartPole-v1의 action space는 Discrete(2)
+  - 0 -> 카트를 왼쪽으로 힘 주기 (push left)
+  - 1 -> 카트를 오른쪽으로 힘 주기 (push right)
+  - 즉, CartPole에서는 action 값이 항상 0 또는 1 두 가지 정수 중 하나.   
 - 환경: CartPole-v1 (막대기를 세우는 고전 강화학습 환경)
 - 에이전트: DQNAgent 클래스
   - 신경망 구조: 입력층(상태), 은닉층 2개(ReLU), 출력층(Q-value)   
