@@ -37,6 +37,9 @@ pip install -r requirement.txt
 
 
 ## Quiz
+
+> cartpole_dqn_quiz.py 코드의 "뭘까요?"를 채워봅시다.
+
 1. 리플레이 버퍼에서 학습에 사용할 미니배치를 `random.sample`을 이용해 무작위로 추출하는 주된 이유는 무엇일까?
 
     ```python
@@ -92,7 +95,7 @@ pip install -r requirement.txt
     ```
 
     [수정할 Double DQN 코드 (After)]
-    아래 코드의 빈칸 (뭘까요?) 3개를 채워 Double DQN을 완성해 보자.
+    아래 코드의 빈칸 (뭘까요?) 3개를 채워 Double DQN을 완성해 보자(cartpole_dqn_double_quiz.py).
 
     ```python
     # train_model 메서드 내부...

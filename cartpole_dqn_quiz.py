@@ -54,7 +54,7 @@ class DQNAgent:
         if np.random.rand() <= self.epsilon:
             return random.randrange(self.action_size)
         q_value = self.model.predict(state, verbose=0) 
-        return "뭘까요"
+        return np."뭘까요?"
 
     # 경험을 리플레이 메모리에 저장하는 함수
     def append_sample(self, state, action, reward, next_state, done):

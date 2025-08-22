@@ -41,7 +41,7 @@ class DQNAgent:
         model.add(Dense(24, activation='relu', kernel_initializer='he_uniform'))
         model.add(Dense(self.action_size, activation='linear', kernel_initializer='he_uniform'))
         model.summary()
-        model.compile(loss='mse', optimizer=Adam(learning_rate=self.learning_rate))  # ← lr -> learning_rate
+        model.compile(loss='mse', optimizer=Adam(learning_rate=self.learning_rate)) 
         return model
 
     def update_target_model(self):
@@ -50,7 +50,7 @@ class DQNAgent:
     def get_action(self, state):
         if np.random.rand() <= self.epsilon:
             return random.randrange(self.action_size)
-        q_value = self.model.predict(state, verbose=0)  # ← verbose=0로 깔끔하게
+        q_value = self.model.predict(state, verbose=0)  
         return np.argmax(q_value[0])
 
     def append_sample(self, state, action, reward, next_state, done):
