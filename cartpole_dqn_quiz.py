@@ -54,7 +54,7 @@ class DQNAgent:
         if np.random.rand() <= self.epsilon:
             return random.randrange(self.action_size)
         q_value = self.model.predict(state, verbose=0) 
-        return np."뭘까요?"
+        return np.argmax(q_value[0])
 
     # 경험을 리플레이 메모리에 저장하는 함수
     def append_sample(self, state, action, reward, next_state, done):
@@ -78,13 +78,13 @@ class DQNAgent:
             dones.append(mini_batch[i][4])
 
         target = self.model.predict(states, verbose=0)
-        target_val = "뭘까요?".predict(next_states, verbose=0)
+        target_val = self.target_model.predict(next_states, verbose=0)
 
         for i in range(self.batch_size):
             if dones[i]:
-                target[i][actions[i]] = "뭘까요?"
+                target[i][actions[i]] = rewards[i]
             else:
-                target[i][actions[i]] = "뭘까요?"+ self.discount_factor * np."뭘까요?"
+                target[i][actions[i]] = rewards[i] + self.discount_factor * np.amax(target_val[i])
 
         self.model.fit(states, target, batch_size=self.batch_size, epochs=1, verbose=0)
 
@@ -124,10 +124,10 @@ if __name__ == "__main__":
             # 실패 시 -100 보상
             shaped_reward = reward if not done or score == 499 else -100.0
 
-            agent.append_sample("뭘까요?", "뭘까요?", "뭘까요?", "뭘까요?", done)
+            agent.append_sample(state, action, shaped_reward, next_state, done)
 
             # 경험 데이터가 쌓이면 train 시작
-            if len("뭘까요?") >= agent.train_start:
+            if len(agent.memory) >= agent.train_start:
                 agent.train_model()
 
             score += reward
