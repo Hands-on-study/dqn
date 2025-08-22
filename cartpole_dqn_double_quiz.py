@@ -85,16 +85,16 @@ class DQNAgent:
 
         for i in range(self.batch_size):
             if dones[i]:
-                target[i][actions[i]] = "뭘까요?"
+                target[i][actions[i]] = rewards[i]
             else:
                 # Step 1: 메인 네트워크의 예측값으로 최적 행동의 '인덱스'를 선택
-                action = "뭘까요?"
+                action = np.argmax(next_q_values_main[i])
 
                 # Step 2: 타겟 네트워크의 예측값에서 위에서 선택한 행동의 '가치'를 평가
-                value = "뭘까요?"
+                value = target_val[i][action]
                 
                 # Step 3: 위에서 평가한 가치(value)를 이용해 최종 타겟 계산
-                target[i][actions[i]] = rewards[i] + self.discount_factor * "뭘까요?"
+                target[i][actions[i]] = rewards[i] + self.discount_factor * value
 
         self.model.fit(states, target, batch_size=self.batch_size, epochs=1, verbose=0)
 
