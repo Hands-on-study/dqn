@@ -84,7 +84,7 @@ class DQNAgent:
             if dones[i]:
                 target[i][actions[i]] = "뭘까요?"
             else:
-                target[i][actions[i]] = "뭘까요?"+ self.discount_factor * "뭘까요?"
+                target[i][actions[i]] = "뭘까요?"+ self.discount_factor * np."뭘까요?"
 
         self.model.fit(states, target, batch_size=self.batch_size, epochs=1, verbose=0)
 
