@@ -123,7 +123,7 @@ pip install -r requirement.txt
 
     for i in range(self.batch_size):
         if dones[i]:
-            target[i][actions[i]] = rewards[i]
+            target[i][actions[i]] = "뭘까요?"
         else:
             # Step 1: 메인 네트워크의 예측값으로 최적 행동의 '인덱스'를 선택
             action = "뭘까요?"
