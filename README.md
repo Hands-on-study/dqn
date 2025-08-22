@@ -1,6 +1,7 @@
 ## env
 python 3.11
 ```bash
+git checkout quiz
 pip install -r requirement.txt
 ```    
 
